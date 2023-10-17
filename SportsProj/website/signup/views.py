@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import mysql.connector as sql
+from django.shortcuts import redirect
 
 fn=''
 ln=''
@@ -28,4 +29,5 @@ def signaction(request):
         c="insert into users Values('{}','{}','{}','{}','{}')".format(fn,ln,s,em,pwd)
         cursor.execute(c)
         m.commit()
+        return redirect('http://localhost:8000/login/')
     return render(request, 'signup_page.html')
