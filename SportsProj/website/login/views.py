@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 import mysql.connector as sql
 
 
@@ -9,7 +10,7 @@ pwd=''
 def loginaction(request):
     global em,pwd
     if request.method=="POST":
-        m=sql.connect(host="localhost", user="root", passwd="kshitij2803", database="sports")
+        m=sql.connect(host="localhost", user="root", passwd="JugguSQL@123", database="sports")
         cursor=m.cursor()
         d=request.POST
         for key,value in d.items():
