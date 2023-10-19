@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'signup',
     'login',
     'equipments',
-    'courts'
+    'courts',
+    'home'
 ]
 
 MIDDLEWARE = [

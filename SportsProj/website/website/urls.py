@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from signup.views import signaction
 from login.views import loginaction
+from home.views import homeaction
+from equipments.views import equipaction
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', signaction),
-    path('login/' ,loginaction)
-    
-]
+    path('login/' ,loginaction),
+    path('home/', homeaction),
+    path('equipments/', equipaction)]
