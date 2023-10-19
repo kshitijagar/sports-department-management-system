@@ -17,7 +17,6 @@ def loginaction(request):
 
         c = "select * from users where email='{}' and password='{}'".format(em, pwd)
         cursor.execute(c)
-<<<<<<< Updated upstream
         t = tuple(cursor.fetchall())
         if t != ():
             return render(request, "welcome.html")
@@ -25,11 +24,5 @@ def loginaction(request):
             error_message = "Invalid username or password."
 
     return render(request, 'login_page.html', {'error_message': error_message})
-=======
-        t=tuple(cursor.fetchall())
-        if t==():
-            return render(request,'error.html')
-        else:
-            return render(request, "home.html")
-    return render(request, 'login_page.html')
->>>>>>> Stashed changes
+
+
