@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def courtaction(request):
+    return render(request,'courts.html')
