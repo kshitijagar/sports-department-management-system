@@ -1,3 +1,4 @@
+'''
 <html>
     <head>
         <title>Signup Page</title>
@@ -62,15 +63,34 @@
                 <div class="imgcontainer">
                     <img src="{% static 'signup.png' %}" alt="Avatar" class="avatar">
                 </div>
-                <label for='first_name'><b>First Name : </b></label>
-		        <input type='text' placeholder="Enter your first name" name='first_name' required><br>
-		        <label for='last_name'><b>Last Name :</b></label>
-		        <input type='text' placeholder='Enter your last name' name='last_name' required><br>
+                <label for='SRN'><b>SRN : </b></label>
+		        <input type='text' placeholder="Enter your SRN" name='SRN' required><br>
+		        <label for='name'><b>Name :</b></label>
+		        <input type='text' placeholder='Enter your  name' name='name' required><br>
 		        <label for='sex' ><b>Sex : </b></label>
 		        <input type='radio' name='sex' value='M' required>
 		        <label ><b>Male</b></label>
 		        <input type='radio' name='sex' value='F' required>
 		        <label ><b>Female</b></label><br>
+                <label for='bg' ><b>Blood Group : </b></label>
+		        <input type='radio' name='bg' value='A+' required>
+		        <label ><b>A+</b></label>
+                <input type='radio' name='bg' value='A-' required>
+		        <label ><b>A-</b></label>
+		        <input type='radio' name='bg' value='B+' required>
+		        <label ><b>B+</b></label>
+                <input type='radio' name='bg' value='B-' required>
+		        <label ><b>B-</b></label>
+                <input type='radio' name='bg' value='AB+' required>
+		        <label ><b>AB+</b></label>
+                <input type='radio' name='bg' value='AB-' required>
+		        <label ><b>AB-</b></label>
+                <input type='radio' name='bg' value='O+' required>
+		        <label ><b>O+</b></label>
+                <input type='radio' name='bg' value='O-' required>
+		        <label ><b>O-</b></label><br>
+                <label for='mobile'><b>Mobile : </b></label>
+            	<input type="text" placeholder="Enter Mobile Number" name="mobile" required><br>
             	<label for ='email'><b>Email Id :  </b></label>
             	<input type="email" placeholder="Enter email" name="email" float="right"  required><br>  
             	<label for='password'><b>Password : </b></label>

@@ -12,21 +12,25 @@ pwd=''
 def signaction(request):
     global fn,ln,s,em,pwd
     if request.method=="POST":
-        m=sql.connect(host="localhost", user="root", passwd="JugguSQL@123", database="sports")
+        m=sql.connect(host="localhost", user="root", passwd="kshitij2803", database="sports")
         cursor=m.cursor()
         d=request.POST
         for key,value in d.items():
-            if key=="first_name":
-                fn=value
-            if key=="last_name":
-                ln=value
+            if key=="name":
+                n=value
+            if key=="SRN":
+                SRN=value
             if key=="sex":
                 s=value
             if key=="email":
                 em=value
             if key=="password":
                 pwd=value   
-        c="insert into users Values('{}','{}','{}','{}','{}')".format(fn,ln,s,em,pwd)
+            if key=="mobile":
+                mob=value  
+            if key=="bg":
+                bg=value 
+        c="insert into student Values('{}','{}','{}','{}','{}', '{}', '{}')".format(SRN,n,mob, em, bg, pwd, s)
         cursor.execute(c)
         m.commit()
         return redirect('http://localhost:8000/login/')
