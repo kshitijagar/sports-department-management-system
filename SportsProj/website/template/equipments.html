@@ -3,6 +3,7 @@
     <head>
         <title>Equipments</title>
     </head>
+    
     <style>
         .wrapper {
             display: flex;
@@ -30,23 +31,42 @@
             background-color: lightblue; /* Just for visual distinction */
             border: 1px solid #000;
         }
+        
     </style>
-    <body><h1><center>Equipments</center></h1></body>
-    <div class="wrapper">
-        <div class="card">
-            <img src="../static/Football.jpg" alt="Avatar">
-            <h4><b>Football</b></h4>
-            <p>Architect & Engineer</p>
+    <h1><center>Equipments</center></h1>
+    <form id="equipmentForm" method="post" action="{% url 'equipments' %}?SRN={{ SRN }}">
+        {% csrf_token %}
+        <div class="wrapper">
+            <div class="card">
+                <input type="checkbox" name="selected_equipment" value="football11">
+                <img src="{% static 'Football.jpg' %}" alt="Avatar">
+                <h4><b>Football</b></h4>
+                <p>Architect & Engineer</p>
+            </div>
+            <div class="card">
+                <input type="checkbox" name="selected_equipment" value="football12">
+                <img src="{% static 'Football.jpg' %}" alt="Avatar">
+                <h4><b>Football</b></h4>
+                <p>Architect & Engineer</p>
+            </div>
+            <div class="card">
+                <input type="checkbox" name="selected_equipment" value="football13">
+                <img src="{% static 'Football.jpg' %}" alt="Avatar">
+                <h4><b>Football</b></h4>
+                <p>Architect & Engineer</p>
+            </div>
+            <!-- Add more cards for other equipment -->
         </div>
-        <div class="card">
-            <img src="../static/login.jpeg" alt="Avatar">
-            <h4><b>John Doe</b></h4>
-            <p>Architect & Engineer</p>
-        </div>
-        <div class="card">
-            <img src="../static/login.jpeg" alt="Avatar">
-            <h4><b>John Doe</b></h4>
-            <p>Architect & Engineer</p>
-        </div>
-    </div>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                });
+            });
+        });
+    </script>
 </html>

@@ -32,4 +32,7 @@ class Student(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.SRN
+    
+    class Meta:
+        db_table = 'student'
