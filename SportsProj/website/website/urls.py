@@ -21,10 +21,12 @@ from login.views import loginaction
 from home.views import homeaction
 from equipments.views import equipaction
 from courts.views import courtaction
+from achievements.views import achieveaction
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', signaction),
     path('login/' ,loginaction),
     path('home/', homeaction),
     path('equipments/', equipaction),
-    path('courts/',courtaction)]
+    path('courts/',courtaction),
+    path('achievement/', achieveaction)]

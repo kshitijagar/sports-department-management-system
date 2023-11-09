@@ -1,0 +1,224 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Student Achievements</title>
+    <style>
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        body {
+            /* font-family: Arial, sans-serif; */
+            background-color: #f2f2f2;
+            /* margin: 0; */
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .achievement {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student Achievements</h1>
+    </header>
+    <nav>
+        <a href="http://localhost:8000/home/?SRN={{ SRN }}">Home</a>
+        
+        <a href="http://localhost:8000/equipments/?SRN={{ SRN }}">Borrow Equipment</a>
+        <a href="http://localhost:8000/courts/?SRN={{ SRN }}">Court Bookings</a>
+        <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
+    </nav>
+    <div class="container">
+        <h2>John Doe</h2>
+        <p>Student ID: 12345</p>
+
+        <h3>Achievements</h3>
+
+        <div class="achievement">
+            <h4>Academic Excellence</h4>
+            <p>John achieved top honors in his class with a GPA of 3.9.</p>
+        </div>
+
+        <div class="achievement">
+            <h4>Sports</h4>
+            <p>John was the captain of the school's soccer team and led the team to victory in the regional tournament.</p>
+        </div>
+
+        <div class="achievement">
+            <h4>Community Service</h4>
+            <p>John volunteered at a local charity organization, helping to raise funds for underprivileged children.</p>
+        </div>
+
+        <div class="achievement">
+            <h4>Arts</h4>
+            <p>John won first place in the school's annual art competition with his beautiful painting.</p>
+        </div>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Student Achievements</title>
+    <style>
+        body {
+            
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <header>
+        <h1>Student Achievements</h1>
+    </header>
+    <nav>
+        <a href="http://localhost:8000/home/?SRN={{ SRN }}">Home</a>
+        
+        <a href="http://localhost:8000/equipments/?SRN={{ SRN }}">Borrow Equipment</a>
+        <a href="http://localhost:8000/courts/?SRN={{ SRN }}">Court Bookings</a>
+        <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
+    </nav>
+    <div class="container">
+        <h2>{{ Student_name }}</h2>
+        <p>Student ID: {{ SRN }}</p>
+
+        <h3>Achievements</h3>
+
+        <div id="achievements-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Award Organization</th>
+                        <th>Cash Prize</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in achievements %}
+                    <tr>
+                        <td>{{ i.Position }}</td>
+                        <td>{{ i.Award_org }}</td>
+                        <td>{{ i.Prize }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        // Log the data to the browser's console
+        console.log("Student Name:", "{{ Student_name }}");
+        console.log("Student ID:", "{{ SRN }}");
+        // console.log("Achievements:", {{ achievements|safe|json_script }});
+    </script>
+</body>
+</html>
