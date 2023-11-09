@@ -30,8 +30,34 @@
             background-color: lightblue; /* Just for visual distinction */
             border: 1px solid #000;
         }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
     </style>
-    <body><h1><center>Equipments</center></h1></body>
+    <header><h1>Court bookings</h1></header>
+    <nav>
+        <a href="http://localhost:8000/home/?SRN={{ SRN }}">Home</a>
+        
+        <a href="http://localhost:8000/equipments/?SRN={{ SRN }}">Borrow Equipment</a>
+        <a href="http://localhost:8000/courts/?SRN={{ SRN }}">Court Bookings</a>
+        <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
+    </nav>
     <div class="wrapper">
         <div class="card">
             <img src="../static/Football.jpg" alt="Avatar">
