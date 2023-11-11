@@ -22,6 +22,7 @@ from home.views import homeaction
 from equipments.views import equipaction
 from courts.views import courtaction
 from achievements.views import achieveaction
+from equipments.views import return_equip
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', signaction),

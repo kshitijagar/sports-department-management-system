@@ -1,7 +1,9 @@
 from django.urls import path
-from . import views
+from .views import equipaction
+from .views import return_equip
 
 urlpatterns = [
     # URL pattern for the equipment selection page
-    path('', views.equipaction, name='equipments'),
+    path('', equipaction, name='equipments'),
+    path('returnequip/',return_equip,name='return_equip')
 ]

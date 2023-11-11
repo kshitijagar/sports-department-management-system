@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+    h1 {
+        margin: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    h2 {
+        color: #333;
+    }
+    p {
+        color: #555;
+    }
+    h3 {
+        color: #333;
+        margin-top: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    tr:nth-child(odd) {
+        background-color: #fff;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 1px;
+        text-align: center;
+    }
+    nav {
+        background-color: #444;
+        padding: 10px;
+        text-align: center;
+    }
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+    }
+    nav a:hover {
+        text-decoration: underline;
+    }
+</style>
+<body>
+    <header>
+        <h1>Return Equipment</h1>
+    </header>
+    <nav>
+        <a href="http://localhost:8000/home/?SRN={{ SRN }}">Home</a>
+        
+        <a href="http://localhost:8000/equipments/?SRN={{ SRN }}">Borrow Equipment</a>
+        <a href="http://localhost:8000/courts/?SRN={{ SRN }}">Court Bookings</a>
+        <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
+    </nav>
+    <div class="container">
+        <h2>{{ Student_name }}</h2>
+        <p>Student ID: {{ SRN }}</p>
+
+        <h3>Borrowed equipments</h3>
+
+        <div id="borrowed-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Equipid</th>
+                        <th>Allot time</th>
+                        <th>Return</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in borrowed_equipment %}
+                    <tr>
+                        <td>{{ i.equipid }}</td>
+                        <td>{{ i.allot_time }}</td>
+                        <td><button>Return</button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

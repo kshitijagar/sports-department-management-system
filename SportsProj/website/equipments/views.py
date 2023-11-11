@@ -42,3 +42,8 @@ def equipaction(request):
 
     # Load the initial equipment selection page
     return render(request, 'equipments.html',{'SRN': current_srn})
+
+def return_equip(request):
+    current_srn=request.GET.get('SRN')
+    borrowed_equipment=Allotment.objects.filter(SRN=current_srn)
+    return render(request,'returnequip.html',{'SRN':current_srn,'borrowed_equipment':borrowed_equipment})
