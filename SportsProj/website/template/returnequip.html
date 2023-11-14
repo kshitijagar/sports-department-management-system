@@ -108,7 +108,13 @@
                     <tr>
                         <td>{{ i.equipid }}</td>
                         <td>{{ i.allot_time }}</td>
-                        <td><button>Return</button></td>
+                        <td>
+                            <form method="post" action="{% url 'return_equip' %}?SRN={{ SRN }}">
+                                <input type="hidden" name="equipid" value="{{ i.equipid }}">
+                                {% csrf_token %}
+                                <button type="submit">Return</button>
+                            </form>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>

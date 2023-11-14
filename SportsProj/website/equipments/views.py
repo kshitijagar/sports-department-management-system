@@ -2,7 +2,6 @@ from datetime import datetime
 from django.shortcuts import render
 from .models import Equipment
 from .allotmentmodel import Allotment
-from django.shortcuts import get_object_or_404
 from .homemodel import Student
 def equipaction(request):
     current_srn = request.GET.get('SRN')
@@ -45,5 +44,18 @@ def equipaction(request):
 
 def return_equip(request):
     current_srn=request.GET.get('SRN')
+    if request.method == 'POST':
+        equipid = request.POST.get('equipid')
+        try:
+            allotment = Allotment.objects.get(SRN=current_srn, equipid=equipid)
+            allotment.delete()
+            # borrowed_equipment=Allotment.objects.filter(SRN=current_srn)
+            # Redirect to the same page after deleting the record
+            borrowed_equipment=Allotment.objects.filter(SRN=current_srn)
+            return render(request,'returnequip.html', {'SRN':current_srn,'borrowed_equipment':borrowed_equipment})
+        except Allotment.DoesNotExist as e:
+            print(e)
+            # Handle the case where the record does not exist
+            return render(request, 'error.html', {'message': 'Allotment record not found.'})
     borrowed_equipment=Allotment.objects.filter(SRN=current_srn)
     return render(request,'returnequip.html',{'SRN':current_srn,'borrowed_equipment':borrowed_equipment})
