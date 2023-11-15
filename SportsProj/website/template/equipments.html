@@ -58,7 +58,7 @@
         <a href="http://localhost:8000/equipments/?SRN={{ SRN }}">Borrow Equipment</a>
         <a href="http://localhost:8000/courts/?SRN={{ SRN }}">Court Bookings</a>
         <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
-    </nav>
+    </nav><br>
     <form id="equipmentForm" method="post" action="{% url 'equipments' %}?SRN={{ SRN }}">
         {% csrf_token %}
         <div class="wrapper">
@@ -73,8 +73,8 @@
                 <h4><b>Basketball</b></h4>
             </div>
             <div class="card">
-                <input type="checkbox" name="selected_equipment" value="football13">
-                <img src="{% static 'Football.jpg' %}" alt="Avatar" height="300px" width="300px">
+                <input type="checkbox" name="selected_equipment" value="cricketbl1">
+                <img src="{% static 'Cricketball.jpg' %}" alt="Avatar" height="300px" width="300px">
                 <h4><b>Football</b></h4>
             </div>
             <!-- Add more cards for other equipment -->

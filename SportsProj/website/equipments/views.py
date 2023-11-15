@@ -37,7 +37,7 @@ def equipaction(request):
                 return render(request, 'error.html', {'message': f'Equipment with ID {equip_id} does not exist.'})
             
         # Redirect to a success page or display a success message
-        return render(request, 'success.html', {'message': 'Equipment allocated successfully.'})
+        return render(request, 'equipments.html', {'SRN': current_srn})
 
     # Load the initial equipment selection page
     return render(request, 'equipments.html',{'SRN': current_srn})
@@ -49,6 +49,9 @@ def return_equip(request):
         try:
             allotment = Allotment.objects.get(SRN=current_srn, equipid=equipid)
             allotment.delete()
+            equipment=Equipment.objects.get(equipid=equipid)
+            equipment.availability+=1
+            equipment.save()
             # borrowed_equipment=Allotment.objects.filter(SRN=current_srn)
             # Redirect to the same page after deleting the record
             borrowed_equipment=Allotment.objects.filter(SRN=current_srn)
