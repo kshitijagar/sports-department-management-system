@@ -24,6 +24,7 @@ from courts.views import courtaction
 from achievements.views import achieveaction
 from equipments.views import return_equip
 from add_ach.views import addachaction
+from trainers.views import trainaction
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', signaction),
@@ -32,4 +33,5 @@ urlpatterns = [
     path('equipments/', include('equipments.urls')),
     path('courts/',courtaction),
     path('achievement/',achieveaction),
-    path('add_achievement/', addachaction)]
+    path('add_achievement/', addachaction),
+    path('trainers/', trainaction)]

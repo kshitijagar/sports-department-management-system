@@ -81,7 +81,7 @@
 
 <body>
     <header>
-        <h1>Student Achievements</h1>
+        <h1>Assigned Trainer</h1>
     </header>
     <nav>
         <a href="http://localhost:8000/home/?SRN={{ SRN }}">Home</a>
@@ -89,41 +89,37 @@
         <a href="http://localhost:8000/equipments/?SRN={{ SRN }}">Borrow Equipment</a>
         <a href="http://localhost:8000/courts/?SRN={{ SRN }}">Court Bookings</a>
         <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
-        <a href="http://localhost:8000/trainers/?SRN={{ SRN }}">trainers</a>
-        <a href="http://localhost:8000/add_achievement/?SRN={{ SRN }}">Add Achievements</a>
+   
     </nav>
     <div class="container">
         <h2>{{ Student_name }}</h2>
         <p>Student ID: {{ SRN }}</p>
 
-        <h3>Achievements</h3>
+        <h3>Trainers</h3>
 
         <div id="achievements-container">
             <table>
                 <thead>
                     <tr>
-                        <th>Position</th>
-                        <th>Award Organization</th>
-                        <th>Cash Prize</th>
+                        <th>Trainer Name</th>
+                        <th>Specialization</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for i in achievements %}
                     <tr>
-                        <td>{{ i.position }}</td>
-                        <td>{{ i.awardorg }}</td>
-                        <td>{{ i.cashprize }}</td>
+                        <td>{{ i.tname }}</td>
+                        <td>{{ i.Specialization }}</td>
+                        <td>{{ i.s_date}}</td>
+                        <td>{{ i.e_date }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
-    <script>
-        // Log the data to the browser's console
-        console.log("Student Name:", "{{ Student_name }}");
-        console.log("Student ID:", "{{ SRN }}");
-        // console.log("Achievements:", {{ achievements|safe|json_script }});
-    </script>
+     
 </body>
 </html>

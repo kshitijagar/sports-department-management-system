@@ -31,5 +31,5 @@ def addachaction(request):
         cursor.execute(c)
         print("here also")
         m.commit()
-        return redirect('http://localhost:8000/achievements/')
+        return redirect('http://localhost:8000/achievement/?SRN={}'.format(SRN))
     return render(request, 'add_achievement.html')
