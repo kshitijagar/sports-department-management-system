@@ -1,7 +1,7 @@
 {% load static %}
 <html>
     <head>
-        <title>Equipments</title>
+        <title>Courts</title>
     </head>
     <style>
         .wrapper {
@@ -53,23 +53,41 @@
     <header><h1>Court bookings</h1></header>
     <nav>
         <a href="http://localhost:8000/home/?SRN={{ SRN }}">Home</a>
-        
+        <a href="http://localhost:8000/courts/returncourt/?SRN={{SRN}}">Return Court</a>
         <a href="http://localhost:8000/equipments/?SRN={{ SRN }}">Borrow Equipment</a>
         <a href="http://localhost:8000/courts/?SRN={{ SRN }}">Court Bookings</a>
         <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
+        <a href="http://localhost:8000/trainers/?SRN={{ SRN }}">Trainers</a>
     </nav><br>
+    <form id="courtForm" method="post" action="{% url 'courts' %}?SRN={{ SRN }}">
+        {% csrf_token %}
     <div class="wrapper">
         <div class="card">
+            <input type="checkbox" name="selected_court" value="ftcrt">
             <img src="{% static 'Footballcourt.jpeg' %}" alt="Avatar" height="300px" width="300px">
             <h4><b>Football Court</b></h4>
         </div>
         <div class="card">
+            <input type="checkbox" name="selected_court" value="bbcrt">
             <img src="{% static 'Basketballcourt.jpg' %}" alt="Avatar" height="300px" width="300px">
             <h4><b>Basketball court</b></h4>
         </div>
         <div class="card">
-            <img src="{% static 'Basketballcourt.jpg' %}" alt="Avatar" height="300px" width="300px">
-            <h4><b>Basketball court</b></h4>
+            <input type="checkbox" name="selected_court" value="crcrt">
+            <img src="{% static 'cricketnet.jpg' %}" alt="Avatar" height="300px" width="300px">
+            <h4><b>Cricket nets</b></h4>
         </div>
-    </div>
+    </div><br><br>
+    <center><button type="submit">Submit</button></center>
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                });
+            });
+        });
+    </script>
 </html>

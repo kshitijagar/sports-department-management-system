@@ -1,5 +1,5 @@
 from django.db import models
-from .homemodel import Student
+from home.models import Student
 from .models import Equipment
 
 class Allotment(models.Model):

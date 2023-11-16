@@ -3,7 +3,7 @@ import mysql.connector as sql
 
 def trainaction(request):
     srn = request.GET.get('SRN')
-    m = sql.connect(host="localhost", user="root", passwd="kshitij2803", database="sports")
+    m = sql.connect(host="localhost", user="root", passwd="JugguSQL@123", database="sports")
     cursor = m.cursor()
     c = "SELECT t.trainername, t.trainerspec, s.start_date, s.end_date FROM student_trainer s JOIN trainer t ON s.trainerid = t.trainerid WHERE s.SRN = '{}' ;".format(srn)
     cursor.execute(c)

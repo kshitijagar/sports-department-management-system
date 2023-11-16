@@ -2,7 +2,7 @@ from datetime import datetime
 from django.shortcuts import render
 from .models import Equipment
 from .allotmentmodel import Allotment
-from .homemodel import Student
+from home.models import Student
 def equipaction(request):
     current_srn = request.GET.get('SRN')
     

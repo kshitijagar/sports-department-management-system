@@ -31,7 +31,7 @@ urlpatterns = [
     path('login/' ,loginaction),
     path('home/', homeaction),
     path('equipments/', include('equipments.urls')),
-    path('courts/',courtaction),
+    path('courts/', include('courts.urls')),
     path('achievement/',achieveaction),
     path('add_achievement/', addachaction),
     path('trainers/', trainaction)]
