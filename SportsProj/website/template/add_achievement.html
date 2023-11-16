@@ -23,7 +23,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             max-width: 400px;
             width: 100%;
-            
+            margin: auto; /* Center the form */
         }
 
         h2 {
@@ -34,20 +34,25 @@
             background-color: #333;
             color: #fff;
             padding: 20px;
-            text-align: center;
+            text-align: center; /* Add margin to separate header from the form */
         }
         nav {
             background-color: #444;
-            padding: 10px;
-            text-align: center;
+            padding: 15px 0;
+            text-align: center; /* Add margin to separate navigation from the form */
         }
+
         nav a {
             color: #fff;
             text-decoration: none;
             margin: 0 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
+
         nav a:hover {
             text-decoration: underline;
+            background-color: #555;
         }
         label {
             display: block;
@@ -72,11 +77,12 @@
         button {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 15px;
+            padding: 12px 15px; /* Increase padding for better clickability */
             border: none;
             border-radius: 5px;
             cursor: pointer;
             width: 100%;
+            margin-top: 20px; /* Add margin for separation from the input fields */
         }
 
         button:hover {
@@ -97,11 +103,11 @@
         <h1>Sports Department Management System</h1>
     </header>
     <nav>
-        <a href="#">Home</a>
+        <a href="http://localhost:8000/home/?SRN={{SRN}}">Home</a>
         <a href="http://localhost:8000/equipments/?SRN={{SRN}}">Borrow Equipment</a>
         <a href="http://localhost:8000/courts/?SRN={{SRN}}">Court Bookings</a>
         <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
-        <a href="http://localhost:8000/trainers/?SRN={{ SRN }}">trainers</a>
+        <a href="http://localhost:8000/trainers/?SRN={{ SRN }}">Trainers</a>
 
     </nav>
     <main>
@@ -113,7 +119,7 @@
         <label for="cp">Cash Prize:</label>
         <input type="integer" id="cp" name="cp" required>
 
-        <label for="titl">Achievement Title:</label>
+        <label for="titl">Achievement Organisation:</label>
         <input type="text" id="titl" name="titl" required>
 
         <label for="aDate">Date:</label>

@@ -28,4 +28,4 @@ def achieveaction(request):
         'achievements': achievements
     }
     print(context)
-    return render(request, 'achievements.html', context)
+    return render(request, 'achievements.html', {'SRN':srn,'Student_name':student_name,'achievements':achievements})
