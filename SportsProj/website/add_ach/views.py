@@ -15,7 +15,7 @@ def addachaction(request):
     SRN = request.GET.get('SRN')
     if request.method=="POST":
         print("here also")
-        m=sql.connect(host="localhost", user="root", passwd="JugguSQL@123", database="sports")
+        m=sql.connect(host="localhost", user="root", passwd="kshitij2803", database="sports")
         cursor=m.cursor()
         d=request.POST
         for key,value in d.items():
@@ -32,4 +32,4 @@ def addachaction(request):
         print("here also")
         m.commit()
         return redirect('http://localhost:8000/achievement/?SRN={}'.format(SRN))
-    return render(request, 'add_achievement.html')
+    return render(request, 'add_achievement.html',{'SRN':SRN})

@@ -3,7 +3,7 @@ import mysql.connector as sql
 
 def achieveaction(request):
     srn = request.GET.get('SRN')
-    m = sql.connect(host="localhost", user="root", passwd="JugguSQL@123", database="sports")
+    m = sql.connect(host="localhost", user="root", passwd="kshitij2803", database="sports")
     cursor = m.cursor()
     c = "SELECT s.name, a.position, a.awardorg, a.cashprize FROM student s JOIN achievements a ON s.SRN = a.SRN WHERE s.SRN = '{}' ORDER BY a.cashprize DESC;".format(srn)
     cursor.execute(c)
@@ -21,11 +21,14 @@ def achieveaction(request):
             'awardorg': s[2],
             'cashprize': s[3]
         })
-
+    cur = m.cursor()
+    cur.callproc("CalculateTotalCashPrize", [srn])
+    result = cur.fetchone()
     context = {
         'SRN': srn,
         'Student_name': student_name,
-        'achievements': achievements
+        'achievements': achievements,
+        'total': result
     }
     print(context)
-    return render(request, 'achievements.html', {'SRN':srn,'Student_name':student_name,'achievements':achievements})
+    return render(request, 'achievements.html', {'SRN':srn,'Student_name':student_name,'achievements':achievements, 'total':result})
