@@ -3,29 +3,27 @@ import mysql.connector as sql
 
 def trainaction(request):
     srn = request.GET.get('SRN')
-    m = sql.connect(host="localhost", user="root", passwd="JugguSQL@123", database="sports")
+    m = sql.connect(host="localhost", user="root", passwd="kshitij2803", database="sports")
     cursor = m.cursor()
-    c = "SELECT t.trainername, t.trainerspec, s.start_date, s.end_date FROM student_trainer s JOIN trainer t ON s.trainerid = t.trainerid WHERE s.SRN = '{}' ;".format(srn)
+    c = " SELECT  t.trainername, t.trainerspec, st.name, s.start_date, s.end_date AS student_name FROM student_trainer s JOIN trainer t ON s.trainerid = t.trainerid JOIN student st ON s.SRN = st.SRN WHERE s.SRN = '{}';".format(srn)
     cursor.execute(c)
+    
     t = list(cursor.fetchall())
+    
     student_name = ''
     achievements = []
-    q="SELECT name from student where SRN='{}'".format(srn)
-    cursor=m.cursor()
-    cursor.execute(q)
-    y=list(cursor.fetchall())
-    student_name=str(y)[3:-4]
-    print(t)
     for i in t:
         a = str(i)
         a = a[1:-1]
         s = a.split("', ")
-        ss=s[2].split('), ')
+        ss=s[3].split('), ')
         sd=ss[0][14:]
         ed= ss[1][14:-1]
+        student_name= s[2][1:]
         achievements.append({
             'tname': s[0][1:],
             'Specialization': s[1][1:],
+
             's_date':sd,
             'e_date': ed
         })
