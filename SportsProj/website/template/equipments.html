@@ -75,6 +75,7 @@
         <a href="http://localhost:8000/courts/?SRN={{ SRN }}">Court Bookings</a>
         <a href="http://localhost:8000/achievement/?SRN={{ SRN }}">Achievements</a>
         <a href="http://localhost:8000/trainers/?SRN={{ SRN }}">Trainers</a>
+        <a href="http://localhost:8000/login/">Log Out</a>
     </nav><br>
     <form id="equipmentForm" method="post" action="{% url 'equipments' %}?SRN={{ SRN }}">
         {% csrf_token %}
